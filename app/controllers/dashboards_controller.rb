@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def index
-    @dashboards = current_user.dashboards
+    @dashboards = current_user.dashboards.order(order_number: :desc)
   end
 
   def new

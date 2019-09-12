@@ -1,3 +1,13 @@
-= link_to 'Create dashboard', new_dashboard_path, class: 'btn btn-success'
-.page-harder
-  %h2 Dashboards list
+.row
+  = link_to 'Create dashboard', new_dashboard_path, class: 'btn btn-success'
+  .page-harder
+    %h2 Dashboards list
+  - @dashboards.each do |dashboard|
+    .panel.panel-default
+      .panel-heading
+        .panel-title= dashboard.title
+      .panel-body
+        = dashboard.description
+      .panel-footer
+        = link_to 'Edit', edit_dashboard_path(dashboard), class: 'btn btn-info'
+        = link_to 'Delete', dashboard_path(dashboard), method: :destroy, class: 'btn btn-danger'
