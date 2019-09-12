@@ -11,4 +11,7 @@
       %ul.nav.navbar-nav
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{ href: new_user_session_path } Login
+          - if current_user
+            %a{ href: dashboards_path } Manage Dashboards
+          - else
+            %a{ href: new_user_session_path } Login
