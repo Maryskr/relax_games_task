@@ -1,6 +1,4 @@
 = bootstrap_form_for(@dashboard) do |f|
-  = f.hidden_field :user
   = f.text_field :title
   = f.text_area :description
-  = f.number_field :order_number
   = f.submit 'Create', class: 'btn btn-success'

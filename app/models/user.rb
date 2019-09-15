@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :dashboards, dependent: :destroy
+  has_many :user_dashboards, dependent: :destroy
+  has_many :dashboards, through: :dashboards
 end
 
 # == Schema Information

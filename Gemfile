@@ -37,6 +37,8 @@ gem 'devise'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'bootstrap_form'
 

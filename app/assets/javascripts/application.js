@@ -15,3 +15,6 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable

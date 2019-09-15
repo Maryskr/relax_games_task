@@ -9,5 +9,9 @@
       .panel-body
         = dashboard.description
       .panel-footer
-        = link_to 'Edit', edit_dashboard_path(dashboard), class: 'btn btn-info'
-        = link_to 'Delete', dashboard_path(dashboard), method: :destroy, class: 'btn btn-danger'
+        = link_to 'Edit', edit_dashboard_path(dashboard), class: 'btn btn-warning'
+        - user_dashboard = current_user.user_dashboards.find_by(dashboard_id: dashboard.id)
+        - if user_dashboard
+          = link_to 'Remove from my menu', user_dashboard_path(user_dashboard), method: :delete, class: 'btn btn-danger'
+        - else
+          = link_to 'Add to my menu', new_user_dashboard_path(dashboard_id: dashboard), class: 'btn btn-info'

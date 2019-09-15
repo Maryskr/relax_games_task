@@ -1,5 +1,5 @@
 class Dashboard < ActiveRecord::Base
-  belongs_to :user
+  validates :title, :description, presence: true
 end
 
 # == Schema Information

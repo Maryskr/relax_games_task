@@ -1,0 +1,18 @@
+.row
+  .page-harder
+    %h2 My Dashboards
+  #wrapper
+    - @user_dashboards.each do |user_dashboard|
+      .panel.panel-default
+        .panel-heading
+          .panel-title= user_dashboard.title
+        .panel-body
+          = user_dashboard.description
+        .panel-footer
+          = link_to 'Edit', edit_user_dashboard_path(user_dashboard.id), class: 'btn btn-info'
+          = link_to 'Remove', user_dashboard_path(user_dashboard.id), method: :delete, class: 'btn btn-danger'
+    
+:javascript
+  $(document).ready( function() {
+    $('#wrapper').sortable();
+  } );

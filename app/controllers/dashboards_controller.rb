@@ -1,14 +1,15 @@
 class DashboardsController < ApplicationController
   def index
-    @dashboards = current_user.dashboards.order(order_number: :desc)
+    # TODO: add kaminari pagination
+    @dashboards = Dashboard.all
   end
 
   def new
-    @dashboard = Dashboard.new(user: current_user)
+    @dashboard = Dashboard.new
   end
 
   def create
-    @dashboard = current_user.dashboards.new(dashboard_params)
+    @dashboard =  Dashboard.new(dashboard_params)
     if @dashboard.save
       flash[:success] = 'successfully created'
       redirect_to dashboards_path
@@ -22,7 +23,6 @@ class DashboardsController < ApplicationController
   private
 
   def dashboard_params
-    params.require(:dashboard)
-          .permit(:user_id, :title, :description, :order_number)
+    params.require(:dashboard).permit(:title, :description)
   end
 end
