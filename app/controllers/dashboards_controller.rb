@@ -1,9 +1,10 @@
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
+  PER = 4
+
   def index
-    # TODO: add kaminari pagination
-    @dashboards = Dashboard.all
+    @dashboards = Dashboard.all.page(params[:page]).per(PER)
   end
 
   def new

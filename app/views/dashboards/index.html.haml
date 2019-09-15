@@ -15,3 +15,5 @@
           = link_to 'Remove from my menu', user_dashboard_path(user_dashboard), method: :delete, class: 'btn btn-danger'
         - else
           = link_to 'Add to my menu', user_dashboards_path(dashboard_id: dashboard.id), method: :post, class: 'btn btn-info'
+
+  = paginate @dashboards, theme: 'twitter-bootstrap-3'

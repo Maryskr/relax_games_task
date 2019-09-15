@@ -42,6 +42,9 @@ gem 'jquery-ui-rails'
 gem 'rails_sortable'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'bootstrap_form'
+gem 'faker'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
