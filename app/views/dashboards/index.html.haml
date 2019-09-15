@@ -1,4 +1,6 @@
 .row
+  = render partial: 'application/flash', flash: flash
+.row
   = link_to 'Create dashboard', new_dashboard_path, class: 'btn btn-success'
   .page-header
     %h2 Dashboards list

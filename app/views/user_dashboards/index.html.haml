@@ -1,4 +1,5 @@
 .row
+  = render partial: 'application/flash', flash: flash
   .page-header
     %h2 My Dashboards
   - if @user_dashboards.any?
