@@ -1,0 +1,12 @@
+.row
+  .page-header
+    %h2 Edit my profile
+  = bootstrap_form_for(@user) do |f|
+    = f.text_field :email, disabled: true
+    = f.text_field :first_name
+    = f.text_field :last_name
+    = f.phone_field :phone
+    = f.submit 'Save', class: 'btn btn-success'
+
+%h4
+  = link_to 'Change login info', edit_user_registration_path

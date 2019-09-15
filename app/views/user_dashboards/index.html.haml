@@ -1,18 +1,29 @@
 .row
-  .page-harder
+  .page-header
     %h2 My Dashboards
-  #wrapper
-    - @user_dashboards.each do |user_dashboard|
-      .panel.panel-default
-        .panel-heading
-          .panel-title= user_dashboard.title
-        .panel-body
-          = user_dashboard.description
-        .panel-footer
-          = link_to 'Edit', edit_user_dashboard_path(user_dashboard.id), class: 'btn btn-info'
-          = link_to 'Remove', user_dashboard_path(user_dashboard.id), method: :delete, class: 'btn btn-danger'
+  - if @user_dashboards.any?
+    .alert.alert-info
+      Drag and drop dashboards to change order
+    #wrapper
+      - @user_dashboards.each do |user_dashboard|
+        .panel.panel-default{ id: user_dashboard.sortable_id }
+          .panel-heading
+            .panel-title= user_dashboard.title
+          .panel-body
+            = user_dashboard.description
+          .panel-footer
+            / = link_to 'Edit', edit_user_dashboard_path(user_dashboard.id), class: 'btn btn-info'
+            = link_to 'Remove', user_dashboard_path(user_dashboard.id), method: :delete, class: 'btn btn-danger'
+
+  - else
+    .alert.alert-info
+      Go to the
+       
+      = link_to 'Manage Dashboard', dashboards_path
+
+      page to add Dashboards to you personal menu page
     
 :javascript
   $(document).ready( function() {
-    $('#wrapper').sortable();
+    $('#wrapper').railsSortable();
   } );

@@ -1,6 +1,6 @@
 .row
   = link_to 'Create dashboard', new_dashboard_path, class: 'btn btn-success'
-  .page-harder
+  .page-header
     %h2 Dashboards list
   - @dashboards.each do |dashboard|
     .panel.panel-default
@@ -14,4 +14,4 @@
         - if user_dashboard
           = link_to 'Remove from my menu', user_dashboard_path(user_dashboard), method: :delete, class: 'btn btn-danger'
         - else
-          = link_to 'Add to my menu', new_user_dashboard_path(dashboard_id: dashboard), class: 'btn btn-info'
+          = link_to 'Add to my menu', user_dashboards_path(dashboard_id: dashboard.id), method: :post, class: 'btn btn-info'
