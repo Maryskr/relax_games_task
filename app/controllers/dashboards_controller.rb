@@ -18,7 +18,7 @@ class DashboardsController < ApplicationController
       redirect_to dashboards_path
     else
       flash[:errod] = 'Something get wrong'
-      redirect_to :back
+      redirect_back(fallback_location: new_dashboard_path)
     end
   end
 
@@ -33,7 +33,7 @@ class DashboardsController < ApplicationController
       redirect_to dashboards_path
     else
       flash[:errod] = 'Something get wrong'
-      redirect_to :back
+      redirect_back(fallback_location: edit_dashboard_path(@dashboard))
     end
   end
 
