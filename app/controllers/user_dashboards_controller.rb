@@ -20,7 +20,7 @@ class UserDashboardsController < ApplicationController
 
   def render_error
     flash[:errod] = 'Something get wrong'
-    redirect_back(fallback_location: @user_dashboard)
+    redirect_back(fallback_location: dashboards_path)
   end
 
   def user_dashboard_params
