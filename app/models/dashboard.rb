@@ -1,4 +1,5 @@
 class Dashboard < ActiveRecord::Base
+  has_many :user_dashboards, dependent: :destroy
   validates :title, :description, presence: true
 end
 
